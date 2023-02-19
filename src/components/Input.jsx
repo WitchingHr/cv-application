@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 
-export default function Input({ name }) {
+export default function Input({ name, max }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
+
+  let maxLength;
+  let className;
+  if (max) {
+    maxLength = max;
+    className = "date-input";
+  }
 
   function handleClick() {
     setEdit(!edit);
@@ -34,14 +41,20 @@ export default function Input({ name }) {
     setEdit(!edit);
   }
 
+  function handleFocus(e) {
+    e.target.select();
+  }
+
   if (edit) {
     return (
       <input
-        className='data-input'
+        className={'data-input ' + className}
         value={text}
         onChange={handleOnChange}
         onKeyDown={handleSave}
+        onFocus={handleFocus}
         onBlur={handleOutsideClick}
+        maxLength={maxLength}
         autoFocus
       />
     );
@@ -53,6 +66,7 @@ export default function Input({ name }) {
       tabIndex="0"
       className="data"
       onClick={handleClick}
+      onFocus={handleClick}
       onKeyDown={handleKeyDown}
     >
       {text}
