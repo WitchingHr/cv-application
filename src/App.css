@@ -81,6 +81,10 @@
   position: relative;
 }
 
+.add-more {
+  -webkit-appearance: none;
+}
+
 .gradient {
   padding: 3px;
   border-radius: 10px;

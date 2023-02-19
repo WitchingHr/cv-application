@@ -1,32 +1,51 @@
 import React, { useState } from 'react';
 
-export default function Input({ name, max }) {
+export default function Input({ name }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
 
-  let maxLength;
+  // Get class names for date/description inputs
   let className;
-  if (max) {
-    maxLength = max;
-    className = "date-input";
+  let maxLength;
+  switch (name) {
+    case 'From':
+    case 'To':
+      className = "date-input";
+      maxLength = 4;
+      break;
+    case 'Description':
+      className = "description-input";
+      break;
+    default:
+      break;
   }
 
+  // Open input
   function handleClick() {
     setEdit(!edit);
   }
 
+  // Open input
   function handleKeyDown(e) {
     if (e.key === 'Enter') {
       setEdit(!edit);
     }
   }
+  
+  // Select text on open input
+  function handleFocus(e) {
+    e.target.select();
+  }
 
+  // Update text
   function handleOnChange(e) {
     setText(e.target.value);
   }
 
+  // Close input
   function handleSave(e) {
     if (e.key === 'Enter') {
+      // If empty, set to default val
       if (!text) {
         setText(name)
       }
@@ -34,17 +53,17 @@ export default function Input({ name, max }) {
     }
   }
 
+  // Close input
   function handleOutsideClick() {
+    // If empty, set to default val
     if (!text) {
       setText(name)
     }
     setEdit(!edit);
   }
 
-  function handleFocus(e) {
-    e.target.select();
-  }
 
+  // Input editor
   if (edit) {
     return (
       <input
@@ -60,6 +79,7 @@ export default function Input({ name, max }) {
     );
   }
 
+  // Div/Button
   return (
     <div
       role="button"

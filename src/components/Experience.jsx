@@ -10,10 +10,10 @@ export default function Experience() {
         <Input name="Responsibilities" />
         <div className="dates-container">
           <span className="dates-input">
-            <Input name="From" max="4" />
+            <Input name="From" />
           </span>
           <span className="dates-input">
-            <Input name="To" max="4" />
+            <Input name="To" />
           </span>
         </div>
       </div>
