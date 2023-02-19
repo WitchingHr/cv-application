@@ -36,6 +36,9 @@ textarea {
 .responsibilities,
 .description {
   height: 90px !important;
+  white-space: normal !important;
+  word-wrap: break-word;
+  overflow: scroll !important;
 }
 
 .data {
@@ -46,6 +49,9 @@ textarea {
   transition: .4s ease-out;
   box-shadow: 0px 0px 4px 1px #00000078 inset;
   border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .data:hover {
