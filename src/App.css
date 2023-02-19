@@ -35,14 +35,47 @@
   transition: 0.01s;
 }
 
-.general {
+.general,
+.education,
+.experience {
   width: 330px;
   height: 130px;
-  border: 2px solid white;
+}
+
+.experience {
+  width: 330px;
+  height: 165px;
+}
+
+.skills {
+  width: 330px;
+  height: 95px;
+}
+
+.data-box {
   padding: 20px 40px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: start;
+  background-color: #282c34;
+}
+
+.gradient {
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.color-1 {
+  background: linear-gradient(orange, red);
+}
+.color-2 {
+  background: linear-gradient(blue, cyan);
+}
+.color-3 {
+  background: linear-gradient(red, purple);
+}
+.color-4 {
+  background: linear-gradient(green, yellow);
 }
