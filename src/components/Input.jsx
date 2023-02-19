@@ -5,7 +5,7 @@ export default function Input({ name }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
 
-  // Get class names for date/description inputs
+  // Get attributes for specific Input type
   let className;
   let maxLength;
   switch (name) {
@@ -49,7 +49,7 @@ export default function Input({ name }) {
   // Close input
   function handleSave(e) {
     if (e.key === 'Enter') {
-      // If empty, set to default val
+      // If empty string, set to default val
       if (!text) {
         setText(name)
       }
@@ -59,7 +59,7 @@ export default function Input({ name }) {
 
   // Close input
   function handleOutsideClick() {
-    // If empty, set to default val
+    // If empty string, set to default val
     if (!text) {
       setText(name)
     }

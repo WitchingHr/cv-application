@@ -90,6 +90,24 @@ textarea {
   position: relative;
 }
 
+.delete {
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  color: #3e6bc6;
+  font-weight: bolder;
+  opacity: 0;
+}
+
+.delete:hover {
+  color: #274580;
+}
+
+.data-box:hover > .delete {
+  opacity: 1;
+}
+
 .add-more {
   cursor: pointer;
   -webkit-appearance: none;
