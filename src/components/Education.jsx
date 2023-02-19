@@ -5,7 +5,7 @@ export default function Education() {
   return (
     <div className='gradient color-2'>
       <div className='education data-box'>
-        <Input name="Degree" />
+        <Input name="Degree or Certificate" />
         <Input name="School" />
         <div className="dates-container">
           <span className="dates-input">

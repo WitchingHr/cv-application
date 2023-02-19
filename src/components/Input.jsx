@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Input({ name }) {
+  // Determine if editing
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
 
@@ -14,7 +15,10 @@ export default function Input({ name }) {
       maxLength = 4;
       break;
     case 'Description':
-      className = "description-input";
+      className = "description";
+      break;
+    case 'Responsibilities':
+      className = "responsibilities";
       break;
     default:
       break;
@@ -62,6 +66,37 @@ export default function Input({ name }) {
     setEdit(!edit);
   }
 
+  if (name === 'Responsibilities' || name === 'Description') {
+    if (edit) {
+      return (
+        <textarea
+          cols="2"
+          className={'data-input ' + className}
+          value={text}
+          onChange={handleOnChange}
+          onKeyDown={handleSave}
+          onFocus={handleFocus}
+          onBlur={handleOutsideClick}
+          maxLength={maxLength}
+          autoFocus
+        />
+      );
+    }
+
+    return (
+      <div
+        title={name}
+        role="button"
+        tabIndex="0"
+        className={"data " + className}
+        onClick={handleClick}
+        onFocus={handleClick}
+        onKeyDown={handleKeyDown}
+      >
+        {text}
+      </div>
+    );
+  }
 
   // Input editor
   if (edit) {
@@ -79,9 +114,11 @@ export default function Input({ name }) {
     );
   }
 
+
   // Div/Button
   return (
     <div
+      title={name}
       role="button"
       tabIndex="0"
       className="data"

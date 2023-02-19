@@ -51,7 +51,12 @@ function App() {
   function getComponent(obj) {
     switch (obj.name) {
       case 'general':
-        return <General key={obj.id} />
+        return (
+          <React.Fragment key={obj.id}>
+            <General key={obj.id} />
+            <br />
+          </React.Fragment>
+        )
       case 'education':
         return (
           <React.Fragment key={obj.id}>
