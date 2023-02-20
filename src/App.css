@@ -1,6 +1,11 @@
 :root {
   box-sizing: border-box;
   --background: #282c34;
+  --color: rgb(255, 128, 0);
+}
+
+body {
+  overflow: scroll;
 }
 
 .App {
@@ -17,7 +22,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   overflow: scroll;
-  padding: 15px;
+  padding: 17px 15px 15px 15px;
 }
 
 textarea {
@@ -168,10 +173,10 @@ textarea {
     transform: rotate(0);
   }
   25% {
-    transform: rotate(3deg);
+    transform: rotate(2deg);
   }
   75% {
-    transform: rotate(-3deg);
+    transform: rotate(-2deg);
   }
   100% {
     transform: rotate(0);
@@ -180,12 +185,17 @@ textarea {
 
 .wrapper {
   flex: 1;
-  margin: 20px;
+  margin-left: 20px;
   position: sticky;
   top: 15px;
   right: 0;
   width: 500px;
   height: 90vh;
+}
+
+.resume-container {
+  aspect-ratio: 1 / 1.412;
+  height: calc(90vh + 40px);
 }
 
 .resume {
@@ -194,4 +204,117 @@ textarea {
   position: relative;
   background: var(--background);
   height: 90vh;
+  aspect-ratio: 1 / 1.4142;
+  display: flex;
+}
+
+.resume-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 150px;
+}
+
+.resume-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--color);
+  padding: 10px;
+}
+
+.resume-data {
+  color: var(--color);
+  font-size: 12px;
+}
+
+.resume-data-invert {
+  color: var(--background);
+  font-size: 14px;
+}
+
+.category {
+  color: var(--color);
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.category-invert {
+  color: var(--background);
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.type-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.type {
+  color: var(--color);
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.type-invert {
+  color: var(--background);
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.hr {
+  background-color: var(--color);
+  height: 1px;
+  border: none;
+}
+
+.hr-invert {
+  background-color: var(--background);
+  height: 1px;
+  border: none;
+}
+
+.skills-ul {
+  padding-left: 15px;
+}
+
+li.resume-data {
+  padding-right: 10px;
+}
+
+.languages-ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resume-name {
+  color: var(--background);
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.resume-description {
+  font-size: 10px !important;
+}
+
+.resume-date {
+  font-size: 12px !important;
+}
+
+.ref-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.ref {
+  font-size: 10px;
+}
+
+.references {
+  margin-top: auto;
 }
