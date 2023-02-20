@@ -177,3 +177,21 @@ textarea {
     transform: rotate(0);
   }
 }
+
+.wrapper {
+  flex: 1;
+  margin: 20px;
+  position: sticky;
+  top: 15px;
+  right: 0;
+  width: 500px;
+  height: 90vh;
+}
+
+.resume {
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  background: var(--background);
+  height: 90vh;
+}

@@ -3,6 +3,7 @@ import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Resume from './components/Resume';
 import './App.css';
 
 export default function App() {
@@ -188,8 +189,10 @@ export default function App() {
         )}
       </div>
 
-      <div className="resume">
-        
+      <div className='wrapper'>
+        <div className="gradient color-1">
+          <Resume />
+        </div>
       </div>
     </div>
   );
