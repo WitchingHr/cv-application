@@ -1,11 +1,13 @@
 import React from "react";
+import avatar from '../assets/avatar.png';
 
 export default function Resume() {
   return (
     <div className="resume">
 
-      <div className="resume-left">
+      <img alt="Headshot" className="head-shot" src={avatar}></img>
 
+      <div className="left-flex">
           <div>
             <div className="category">Contact</div>
             <hr className="hr"></hr>
@@ -48,8 +50,9 @@ export default function Resume() {
               <li className="resume-data">Functional Programming</li>
             </ul>
           </div>
+      </div>
 
-          <div>
+          <div className="languages">
             <div className="category">Languages</div>
             <hr className="hr"></hr>
               <ul className="languages-ul">
@@ -58,46 +61,43 @@ export default function Resume() {
               </ul>
           </div>
 
-      </div>
 
-      <div className="resume-right">
-        <div>
+        <div className="identity resume-right">
           <div className="resume-name">Matt Thomas</div>
           <div className="type-invert">Web Developer</div>
           <div className="resume-data-invert resume-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore.</div>
         </div>
 
-        <div>
-          <div className="category-invert">Experience</div>
-          <hr className="hr-invert"></hr>
-          <div className="type-wrapper">
-
-            <div>
+        <div className="right-flex resume-right">
+          <div>
+            <div className="category-invert">Experience</div>
+            <hr className="hr-invert"></hr>
+            <div className="type-wrapper">
               <div>
-                <span className="resume-data-invert resume-date">2022</span>
-                <span className="resume-data-invert resume-date">-</span>
-                <span className="resume-data-invert resume-date">2023</span>
+                <div>
+                  <span className="resume-data-invert resume-date">2022</span>
+                  <span className="resume-data-invert resume-date">-</span>
+                  <span className="resume-data-invert resume-date">2023</span>
+                </div>
+                <div className="resume-data-invert">That Company</div>
+                <div className="type-invert">Junior Software Engineer</div>
+                <div className="resume-data-invert resume-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita possimus hic sapiente a magnam nemo.</div>
               </div>
-              <div className="resume-data-invert">That Company</div>
-              <div className="type-invert">Junior Software Engineer</div>
-              <div className="resume-data-invert resume-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita possimus hic sapiente a magnam nemo.</div>
-            </div>
-
-            <div>
               <div>
-                <span className="resume-data-invert resume-date">2022</span>
-                <span className="resume-data-invert resume-date">-</span>
-                <span className="resume-data-invert resume-date">2023</span>
+                <div>
+                  <span className="resume-data-invert resume-date">2022</span>
+                  <span className="resume-data-invert resume-date">-</span>
+                  <span className="resume-data-invert resume-date">2023</span>
+                </div>
+                <div className="resume-data-invert">That Company</div>
+                <div className="type-invert">Junior Software Engineer</div>
+                <div className="resume-data-invert resume-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita possimus hic sapiente a magnam nemo.</div>
               </div>
-              <div className="resume-data-invert">That Company</div>
-              <div className="type-invert">Junior Software Engineer</div>
-              <div className="resume-data-invert resume-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita possimus hic sapiente a magnam nemo.</div>
             </div>
-
           </div>
         </div>
 
-        <div className="references">
+        <div className="references resume-right">
           <div className="category-invert">References</div>
           <hr className="hr-invert"></hr>
           <div className="ref-wrapper">
@@ -137,7 +137,6 @@ export default function Resume() {
             </div>
 
           </div>
-        </div>
 
       </div>
     </div>
