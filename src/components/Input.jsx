@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import dataSetter from '../util';
+import { DataContext } from '../App';
 
-export default function Input({ name }) {
+export default function Input({ id, category, name }) {
+  const { data, setData } = useContext(DataContext);
+
   // Determine if editing
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
@@ -14,8 +18,8 @@ export default function Input({ name }) {
       className = "date-input";
       maxLength = 4;
       break;
-    case 'Description':
-      className = "description";
+    case 'Summary':
+      className = "summary";
       break;
     case 'Responsibilities':
       className = "responsibilities";
@@ -44,6 +48,8 @@ export default function Input({ name }) {
   // Update text
   function handleOnChange(e) {
     setText(e.target.value);
+    const updatedText = e.target.value;
+    dataSetter({ id, updatedText, data, setData, category, name })
   }
 
   // Close input
@@ -66,7 +72,7 @@ export default function Input({ name }) {
     setEdit(!edit);
   }
 
-  if (name === 'Responsibilities' || name === 'Description') {
+  if (name === 'Responsibilities' || name === 'Summary') {
     if (edit) {
       return (
         <textarea

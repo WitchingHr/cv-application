@@ -17,8 +17,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 15px;
   font-size: calc(10px + 2vmin);
   color: white;
   overflow: scroll;
@@ -39,7 +38,7 @@ textarea {
 }
 
 .responsibilities,
-.description {
+.summary {
   height: 90px !important;
   white-space: normal !important;
   word-wrap: break-word;
@@ -74,7 +73,11 @@ textarea {
   flex: 1;
 }
 
-.general,
+.general {
+  width: 330px;
+  height: 270px;
+}
+
 .education {
   width: 330px;
   height: 130px;
@@ -87,7 +90,7 @@ textarea {
 
 .skills {
   width: 330px;
-  height: 135px;
+  height: 35px;
 }
 
 .data-box {
@@ -124,7 +127,6 @@ textarea {
   -webkit-appearance: none;
   background: none;
   border: none;
-  padding: 15px;
   font-size: 20px;
   color: rgb(255, 123, 0);
 }
@@ -275,7 +277,7 @@ textarea {
 .type-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .type {
