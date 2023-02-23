@@ -18,11 +18,13 @@ export default function App() {
   const [data, setData] = useState(initial);
 
   // Add component to passed section
-  function handleAddComponent(name) {
-    let next;
-    if (name === 'education') {
-      next = data.map(category => {
-        if (category.id === 1) {
+  function handleAddComponent(id) {
+    // Get next data
+    const next = data.map(category => {
+      if (category.id === id) {
+
+        // Add Education
+        if (id === 1) {
           return {...category, children: [
             ...data[1].children,
             {
@@ -33,16 +35,9 @@ export default function App() {
               to: 'To'
             }
           ]}
-        } else {
-          return category;
-        }
-      });
-      // Incr key for next component
-      setEducationId(educationId + 1);
 
-    } else if (name === 'experience') {
-      next = data.map(category => {
-        if (category.id === 2) {
+        // Add Experience
+        } else if (id === 2) {
           return {...category, children: [
             ...data[2].children,
             {
@@ -54,16 +49,9 @@ export default function App() {
               to: 'To'
             }
           ]}
-        } else {
-          return category;
-        }
-      });
-      // Incr key for next component
-      setExperienceId(experienceId + 1);
 
-    }  else {
-      next = data.map(category => {
-        if (category.id === 3) {
+        // Add Skill
+        } else if (id === 3) {
           return {...category, children: [
             ...data[3].children,
             { 
@@ -71,14 +59,23 @@ export default function App() {
               skill: 'Skill'
             }
           ]}
-        } else {
-          return category;
         }
-      });
-      // Incr key for next component
+
+      } else {
+        return category;
+      }
+    });
+    // Update data
+    setData(next);
+
+    // Increment key
+    if (id === 1) {
+      setEducationId(educationId + 1);
+    } else if (id === 2) {
+      setExperienceId(experienceId + 1);
+    } else if (id === 3) {
       setSkillsId(skillsId + 1);
     }
-    setData(next);
   }
 
   // Remove child from array
@@ -87,13 +84,15 @@ export default function App() {
     const filtered = data[obj.categoryId].children.filter(
       (child) => child.id !== obj.id
     );
-    setData(data.map(category => {
-      if (category.id === obj.categoryId) {
-        return {...category, children: filtered}
-      } else {
-        return category;
-      }
-    }));
+    setData(
+      data.map(category => {
+        if (category.id === obj.categoryId) {
+          return {...category, children: filtered}
+        } else {
+          return category;
+        }
+      })
+    );
   }
 
   // Get components and any children for render
@@ -115,7 +114,7 @@ export default function App() {
               <Education key={child.id} id={child.id} handleDelete={handleDelete} />
             )}
             {obj.children.length < 2 && 
-              <button className="add-more" onClick={() => handleAddComponent(obj.name)}>
+              <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
                 {/* Specify button text based on if any children */}
                 {obj.children.length > 0 ? 'Add More Education' : 'Add Education'}
               </button>
@@ -131,7 +130,7 @@ export default function App() {
                 <Experience key={child.id} id={child.id} handleDelete={handleDelete} />
               )}
               {obj.children.length < 3 && 
-                <button className="add-more" onClick={() => handleAddComponent(obj.name)}>
+                <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
                   {/* Specify button text based on if any children */}
                   {obj.children.length > 0 ? 'Add More Experience' : 'Add Experience'}
                 </button>
@@ -147,7 +146,7 @@ export default function App() {
               <Skills key={child.id} id={child.id} handleDelete={handleDelete} />
             )}
             {obj.children.length < 5 && 
-            <button className="add-more" onClick={() => handleAddComponent(obj.name)}>
+            <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
               {/* Specify button text based on if any children */}
               {obj.children.length > 0 ? 'Add More Skills' : 'Add Skills'}
             </button>
