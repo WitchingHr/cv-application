@@ -3,29 +3,11 @@ export default function dataSetter(obj) {
   const splitName = obj.name.toLowerCase().split(' ');
   const name = splitName[0];
   
-  const { data, category, updatedText, id } = obj;
+  const { data, categoryId, updatedText, id } = obj;
   
   let next = [];
   
-  function getNext(category) {
-    let categoryId;
-    switch (category) {
-      case 'general':
-        categoryId = 0;
-        break;
-      case 'education':
-        categoryId = 1;
-        break;
-      case 'experience':
-        categoryId = 2;
-        break;
-      case 'skills':
-        categoryId = 3;
-        break;
-      default:
-        break;
-    }
-
+  function getNext(categoryId) {
     next = data.map(category => {
       if (category.id === categoryId) {
         return {
@@ -46,6 +28,6 @@ export default function dataSetter(obj) {
     return next;
   }
 
-  getNext(category);
+  getNext(categoryId);
   obj.setData(next);
 }

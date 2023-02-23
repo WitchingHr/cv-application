@@ -83,39 +83,17 @@ export default function App() {
 
   // Remove child from array
   function handleDelete(obj) {
-    if (obj.category === 'education') {
-      // Filter out child
-      const filtered = data[1].children.filter((child) => child.id !== obj.id);
-      setData(data.map(category => {
-        if (category.id === 1) {
-          return {...category, children: filtered}
-        } else {
-          return category;
-        }
-      }));
-
-    } else if (obj.category === 'experience') {
-      // Filter out child
-      const filtered = data[2].children.filter((child) => child.id !== obj.id);
-      setData(data.map(category => {
-        if (category.id === 2) {
-          return {...category, children: filtered}
-        } else {
-          return category;
-        }
-      }));
-
-    } else if (obj.category === 'skills') {
-      // Filter out child
-      const filtered = data[3].children.filter((child) => child.id !== obj.id);
-      setData(data.map(category => {
-        if (category.id === 3) {
-          return {...category, children: filtered}
-        } else {
-          return category;
-        }
-      }));
-    }
+    // Filter out child
+    const filtered = data[obj.categoryId].children.filter(
+      (child) => child.id !== obj.id
+    );
+    setData(data.map(category => {
+      if (category.id === obj.categoryId) {
+        return {...category, children: filtered}
+      } else {
+        return category;
+      }
+    }));
   }
 
   // Get components and any children for render
@@ -127,7 +105,7 @@ export default function App() {
           <React.Fragment key={obj.id}>
             <General />
           </React.Fragment>
-        )
+        );
 
       case 'education':
         return (
@@ -143,7 +121,7 @@ export default function App() {
               </button>
             }
           </React.Fragment>
-        )
+        );
 
       case 'experience':
         return (
@@ -159,7 +137,7 @@ export default function App() {
                 </button>
               }
           </React.Fragment>
-        )
+        );
 
       case 'skills':
         return (
@@ -175,7 +153,7 @@ export default function App() {
             </button>
             }
           </React.Fragment>
-        )
+        );
 
       default:
         break;

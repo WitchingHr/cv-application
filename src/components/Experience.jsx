@@ -3,21 +3,21 @@ import Input from "./Input";
 
 export default function Experience({ id, handleDelete }) {
   // For handling delete
-  const category = 'experience';
+  const categoryId = 2;
 
   return (
     <div className='gradient color-3'>
       <div className="experience data-box">
-        <div className='delete' onClick={() => handleDelete({ category, id})}>✕</div>
-        <Input id={id} category={category} name="Job Title" />
-        <Input id={id} category={category} name="Company" />
-        <Input id={id} category={category} name="Responsibilities" />
+        <div className='delete' onClick={() => handleDelete({ categoryId, id})}>✕</div>
+        <Input id={id} categoryId={categoryId} name="Job Title" />
+        <Input id={id} categoryId={categoryId} name="Company" />
+        <Input id={id} categoryId={categoryId} name="Responsibilities" />
         <div className="dates-container">
           <span className="dates-input">
-            <Input id={id} category={category} name="From" />
+            <Input id={id} categoryId={categoryId} name="From" />
           </span>
           <span className="dates-input">
-            <Input id={id} category={category} name="To" />
+            <Input id={id} categoryId={categoryId} name="To" />
           </span>
         </div>
       </div>
