@@ -1,27 +1,9 @@
 export default function dataSetter(obj) {
-  let name;
-  switch (obj.name) {
-    case 'Job Title':
-      name = 'job';
-      break;
-    case 'Email Address':
-      name = 'email';
-      break;
-    case 'Phone Number':
-      name = 'phone';
-      break;
-    case 'Degree or Certificate':
-      name = 'degree';
-      break;
-    default:
-      name = obj.name.toLowerCase();
-      break;
-  }
+  // Get property name, lowercase and use first word
+  const splitName = obj.name.toLowerCase().split(' ');
+  const name = splitName[0];
   
-  const data = obj.data;
-  const category = obj.category;
-  const text = obj.updatedText;
-  const id = obj.id;
+  const { data, category, updatedText, id } = obj;
   
   let next = [];
   
@@ -51,7 +33,7 @@ export default function dataSetter(obj) {
           children: 
             category.children.map((child) => {
               if (child.id === id) {
-                return {...child, [name]: text};
+                return {...child, [name]: updatedText};
               } else {
                 return child;
               }

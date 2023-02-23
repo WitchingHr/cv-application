@@ -83,7 +83,6 @@ export default function App() {
 
   // Remove child from array
   function handleDelete(obj) {
-    // debugger;
     if (obj.category === 'education') {
       // Filter out child
       const filtered = data[1].children.filter((child) => child.id !== obj.id);
