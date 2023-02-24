@@ -6,7 +6,6 @@ export default function dataSetter(obj) {
   const { data, categoryId, updatedText, id } = obj;
   
   let next = [];
-  
   function getNext(categoryId) {
     next = data.map(category => {
       if (category.id === categoryId) {

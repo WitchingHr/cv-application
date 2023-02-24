@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import dataSetter from '../util';
 import { DataContext } from '../App';
 
-export default function Input({ id, category, name }) {
+export default function Input({ id, categoryId, name }) {
   const { data, setData } = useContext(DataContext);
 
   // Determine if editing
@@ -49,7 +49,7 @@ export default function Input({ id, category, name }) {
   function handleOnChange(e) {
     setText(e.target.value);
     const updatedText = e.target.value;
-    dataSetter({ id, updatedText, data, setData, category, name })
+    dataSetter({ id, updatedText, data, setData, categoryId, name })
   }
 
   // Close input
