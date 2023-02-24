@@ -5,6 +5,7 @@ import ResumeContact from "./ResumeContact";
 import ResumeEducation from "./ResumeEducation";
 import ResumeSkills from "./ResumeSkills";
 import ResumeExperience from "./ResumeExperience";
+import ResumeLanguages from "./ResumeLanguages"
 
 export default function Resume({ data }) {
   return (
@@ -37,8 +38,9 @@ export default function Resume({ data }) {
         <div className="category">Languages</div>
         <hr className="hr"></hr>
           <ul className="languages-ul">
-            <li className="resume-data">English</li>
-            <li className="resume-data">Spanish</li>
+            {data[4].children.map((child) =>
+              <ResumeLanguages key={child.id} id={child.id} data={data[4].children} />
+            )}
           </ul>
       </div>
 

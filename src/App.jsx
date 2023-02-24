@@ -3,6 +3,7 @@ import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Languages from './components/Languages';
 import Resume from './components/Resume';
 import initial from './data';
 import './App.css';
@@ -14,6 +15,7 @@ export default function App() {
   const [educationId, setEducationId] = useState(1);
   const [experienceId, setExperienceId] = useState(1);
   const [skillsId, setSkillsId] = useState(1);
+  const [languagesId, setLanguagesId] = useState(1);
 
   const [data, setData] = useState(initial);
 
@@ -52,8 +54,6 @@ export default function App() {
 
         // Add Skill
         } else if (id === 3) {
-        // Add Skill
-        } else if (id === 3) {
           return {...category, children: [
             ...data[3].children,
             { 
@@ -61,8 +61,17 @@ export default function App() {
               skill: 'Skill'
             }
           ]}
-        }
 
+        // Add Language
+        } else if (id === 4) {
+          return {...category, children: [
+            ...data[4].children,
+            { 
+              id: languagesId,
+              language: 'Language'
+            }
+          ]}
+        }
       } else {
         return category;
       }
@@ -78,6 +87,8 @@ export default function App() {
       setExperienceId(experienceId + 1);
     } else if (id === 3) {
       setSkillsId(skillsId + 1);
+    } else if (id === 4) {
+      setLanguagesId(languagesId + 1);
     }
   }
 
@@ -105,14 +116,16 @@ export default function App() {
     if (category.id === 1) {
       name = 'Education';
       length = 2;
-    } else if (category === 2) {
+    } else if (category.id === 2) {
       name = 'Experience';
       length = 3;
-    } else {
+    } else if (category.id === 3) {
       name = 'Skills';
       length = 5;
+    } else if (category.id === 4) {
+      name = 'Languages';
+      length = 3;
     }
-
     return (
       <React.Fragment key={category.id}>
         {category.id === 0 ? (
@@ -128,6 +141,8 @@ export default function App() {
                     return <Experience key={child.id} id={child.id} handleDelete={handleDelete} />
                   case 3:
                     return <Skills key={child.id} id={child.id} handleDelete={handleDelete} />
+                  case 4:
+                    return <Languages key={child.id} id={child.id} handleDelete={handleDelete} />
                   default:
                     return null;
                 }

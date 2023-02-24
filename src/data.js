@@ -41,6 +41,14 @@ const initial = [
         skill: 'React'
       }
     ]
+  },
+  { name: 'languages', id: 4, children:
+    [
+      {
+        id: 0,
+        language: 'English'
+      }
+    ]
   }
 ];
 
