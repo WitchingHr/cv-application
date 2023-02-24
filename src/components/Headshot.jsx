@@ -1,0 +1,36 @@
+import React, { useRef, useState } from 'react';
+import avatar from '../assets/avatar.png';
+
+export default function Headshot() {
+  const [image, setImage] = useState(null);
+  const inputFile = useRef(null);
+  
+  function handleClick() {
+    inputFile.current.click();
+  }
+
+  function onImageChange(e) {
+    if (e.target.files && e.target.files[0]) {
+      setImage(URL.createObjectURL(e.target.files[0]))
+    }
+  }
+
+  return (
+    <>
+      <img
+        alt="Headshot"
+        className="head-shot"
+        src={image === null ? avatar : image}
+        onClick={handleClick}
+      />
+      <input 
+        type="file"
+        id="avatar"
+        accpet="image/*"
+        ref={inputFile} 
+        onChange={onImageChange}
+        style={{display: 'none'}}
+      />
+    </>
+  );
+}

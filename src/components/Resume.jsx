@@ -1,17 +1,18 @@
 import React from "react";
 import ResumeIdentity from "./ResumeIdentity";
-import avatar from '../assets/avatar.png';
 import ResumeContact from "./ResumeContact";
 import ResumeEducation from "./ResumeEducation";
 import ResumeSkills from "./ResumeSkills";
 import ResumeExperience from "./ResumeExperience";
 import ResumeLanguages from "./ResumeLanguages"
 import ResumeReferences from "./ResumeReferences";
+import Headshot from "./Headshot";
 
 export default function Resume({ data }) {
   return (
     <div className="resume">
-      <img alt="Headshot" className="head-shot" src={avatar}></img>
+
+      <Headshot />
 
       <div className="left-flex">
         <ResumeContact />
