@@ -52,6 +52,8 @@ export default function App() {
 
         // Add Skill
         } else if (id === 3) {
+        // Add Skill
+        } else if (id === 3) {
           return {...category, children: [
             ...data[3].children,
             { 
