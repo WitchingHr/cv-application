@@ -255,11 +255,13 @@ textarea {
 .resume-data {
   color: var(--color);
   font-size: 12px;
+  word-break: break-word;
 }
 
 .resume-data-invert {
   color: var(--background);
   font-size: 12px;
+  word-break: break-word;
 }
 
 .category {
@@ -284,12 +286,14 @@ textarea {
   color: var(--color);
   font-weight: bolder;
   font-size: 12px;
+  word-break: break-word;
 }
 
 .type-invert {
   color: var(--background);
   font-weight: bolder;
   font-size: 12px;
+  word-break: break-word;
 }
 
 .hr {
@@ -324,10 +328,12 @@ li.resume-data {
   color: var(--background);
   font-size: 30px;
   font-weight: bolder;
+  word-break: break-word;
 }
 
 .resume-description {
   font-size: 10px !important;
+  word-break: break-word;
 }
 
 .resume-date {
@@ -336,8 +342,8 @@ li.resume-data {
 }
 
 .ref-wrapper {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .ref {

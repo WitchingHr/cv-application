@@ -4,6 +4,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Languages from './components/Languages';
+import References from './components/References';
 import Resume from './components/Resume';
 import initial from './data';
 import './App.css';
@@ -16,6 +17,7 @@ export default function App() {
   const [experienceId, setExperienceId] = useState(1);
   const [skillsId, setSkillsId] = useState(1);
   const [languagesId, setLanguagesId] = useState(1);
+  const [referencesId, setReferencesId] = useState(1);
 
   const [data, setData] = useState(initial);
 
@@ -71,6 +73,20 @@ export default function App() {
               language: 'Language'
             }
           ]}
+
+        // Add Reference
+        } else if (id === 5) {
+          return {...category, children: [
+            ...data[5].children,
+            {
+              id: referencesId,
+              name: 'Name',
+              job: 'Job Title',
+              company: 'Company',
+              email: 'Email Address',
+              phone: 'Phone Number'
+            }
+          ]}
         }
       } else {
         return category;
@@ -89,6 +105,8 @@ export default function App() {
       setSkillsId(skillsId + 1);
     } else if (id === 4) {
       setLanguagesId(languagesId + 1);
+    } else if (id === 5) {
+      setReferencesId(referencesId + 1);
     }
   }
 
@@ -125,7 +143,11 @@ export default function App() {
     } else if (category.id === 4) {
       name = 'Languages';
       length = 3;
+    } else if (category.id === 5) {
+      name = 'References';
+      length = 2;
     }
+
     return (
       <React.Fragment key={category.id}>
         {category.id === 0 ? (
@@ -143,6 +165,8 @@ export default function App() {
                     return <Skills key={child.id} id={child.id} handleDelete={handleDelete} />
                   case 4:
                     return <Languages key={child.id} id={child.id} handleDelete={handleDelete} />
+                  case 5:
+                    return <References key={child.id} id={child.id} handleDelete={handleDelete} />
                   default:
                     return null;
                 }

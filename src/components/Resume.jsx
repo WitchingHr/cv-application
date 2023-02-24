@@ -6,6 +6,7 @@ import ResumeEducation from "./ResumeEducation";
 import ResumeSkills from "./ResumeSkills";
 import ResumeExperience from "./ResumeExperience";
 import ResumeLanguages from "./ResumeLanguages"
+import ResumeReferences from "./ResumeReferences";
 
 export default function Resume({ data }) {
   return (
@@ -63,43 +64,10 @@ export default function Resume({ data }) {
         <div className="category-invert">References</div>
         <hr className="hr-invert"></hr>
         <div className="ref-wrapper">
-
-          <div>
-            <div className="type-invert ref">This Guy</div>
-            <div>
-              <span className="resume-data-invert ref">Lead Developer</span>
-              <span className="resume-data-invert ref">, </span>
-              <span className="resume-data-invert ref">That Company</span>
-            </div>
-            <div>
-              <span className="type-invert ref">Email: </span>
-              <span className="resume-data-invert ref">thisguy@example.com</span>
-            </div>
-            <div>
-              <span className="type-invert ref">Phone: </span>
-              <span className="resume-data-invert ref">6039998888</span>
-            </div>
-          </div>
-
-          <div>
-            <div className="type-invert ref">This Guy</div>
-            <div>
-              <span className="resume-data-invert ref">Lead Developer</span>
-              <span className="resume-data-invert ref">, </span>
-              <span className="resume-data-invert ref">That Company</span>
-            </div>
-            <div>
-              <span className="type-invert ref">Email: </span>
-              <span className="resume-data-invert ref">thisguy@example.com</span>
-            </div>
-            <div>
-              <span className="type-invert ref">Phone: </span>
-              <span className="resume-data-invert ref">6039998888</span>
-            </div>
-          </div>
-
+          {data[5].children.map((child) =>
+            <ResumeReferences key={child.id} id={child.id} data={data[5].children} />
+          )}
         </div>
-
       </div>
     </div>
   );

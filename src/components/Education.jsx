@@ -9,7 +9,7 @@ export default function Education({ id, handleDelete }) {
     <div className='gradient color-2'>
       <div className='education data-box'>
         <div className='delete' onClick={() => handleDelete({ categoryId, id})}>✕</div>
-        <Input id={id} categoryId={categoryId} name="Degree or Certificate" />
+        <Input id={id} categoryId={categoryId} name="Degree or Certification" />
         <Input id={id} categoryId={categoryId} name="School" />
         <div className="dates-container">
           <span className="dates-input">

@@ -49,6 +49,18 @@ const initial = [
         language: 'English'
       }
     ]
+  },
+  { name: 'references', id: 5, children:
+    [
+      {
+        id: 0,
+        name: 'That Guy',
+        job: 'Project Lead',
+        company: 'That Company',
+        email: 'thisguy@example.com',
+        phone: '8675309'
+      }
+    ]
   }
 ];
 

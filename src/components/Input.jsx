@@ -13,16 +13,35 @@ export default function Input({ id, categoryId, name }) {
   let className;
   let maxLength;
   switch (name) {
+    case 'Name':
+    case 'Job Title':
+    case 'Degree or Certification':
+    case 'School':
+    case 'Company':
+      maxLength = 24;
+      break;
+    case 'Skill':
+      maxLength = 20;
+      break;
+    case 'Summary':
+      className = "summary";
+      maxLength = 150;
+      break;
+    case 'Responsibilities':
+      className = "responsibilities";
+      maxLength = 175;
+      break;
+    case 'Email Address':
+      maxLength = 48;
+      break;
+    case 'Phone Number':
+    case 'Language':
+      maxLength = 15;
+      break;
     case 'From':
     case 'To':
       className = "date-input";
       maxLength = 4;
-      break;
-    case 'Summary':
-      className = "summary";
-      break;
-    case 'Responsibilities':
-      className = "responsibilities";
       break;
     default:
       break;
