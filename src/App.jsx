@@ -99,76 +99,60 @@ export default function App() {
   }
 
   // Get components and any children for render
-  function getComponent(obj) {
-    switch (obj.name) {
+  function getComponent(category) {
+    let name;
+    let length;
+    if (category.id === 1) {
+      name = 'Education';
+      length = 2;
+    } else if (category === 2) {
+      name = 'Experience';
+      length = 3;
+    } else {
+      name = 'Skills';
+      length = 5;
+    }
 
-      case 'general':
-        return (
-          <React.Fragment key={obj.id}>
-            <General />
-          </React.Fragment>
-        );
-
-      case 'education':
-        return (
-          <React.Fragment key={obj.id}>
-            {/* Render children, if any. Pass deleter function to child */}
-            {obj.children.map((child) =>
-              <Education key={child.id} id={child.id} handleDelete={handleDelete} />
-            )}
-            {obj.children.length < 2 && 
-              <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
-                {/* Specify button text based on if any children */}
-                {obj.children.length > 0 ? 'Add More Education' : 'Add Education'}
-              </button>
-            }
-          </React.Fragment>
-        );
-
-      case 'experience':
-        return (
-          <React.Fragment key={obj.id}>
-              {/* Render children, if any. Pass deleter function to child */}
-              {obj.children.map(child =>
-                <Experience key={child.id} id={child.id} handleDelete={handleDelete} />
-              )}
-              {obj.children.length < 3 && 
-                <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
-                  {/* Specify button text based on if any children */}
-                  {obj.children.length > 0 ? 'Add More Experience' : 'Add Experience'}
-                </button>
-              }
-          </React.Fragment>
-        );
-
-      case 'skills':
-        return (
-          <React.Fragment key={obj.id}>
-            {/* Render children, if any. Pass deleter function to child */}
-            {obj.children.map(child =>
-              <Skills key={child.id} id={child.id} handleDelete={handleDelete} />
-            )}
-            {obj.children.length < 5 && 
-            <button className="add-more" onClick={() => handleAddComponent(obj.id)}>
+    return (
+      <React.Fragment key={category.id}>
+        {category.id === 0 ? (
+          <General />
+          ) : (
+            // Render children, pass deleter function to child
+            category.children.map((child) =>
+              (function() {
+                switch (category.id) {
+                  case 1:
+                    return <Education key={child.id} id={child.id} handleDelete={handleDelete} />
+                  case 2:
+                    return <Experience key={child.id} id={child.id} handleDelete={handleDelete} />
+                  case 3:
+                    return <Skills key={child.id} id={child.id} handleDelete={handleDelete} />
+                  default:
+                    return null;
+                }
+              })()
+            )
+          )
+        }
+        {category.id !== 0 &&
+          category.children.length < length && 
+            <button className="add-more" onClick={() => handleAddComponent(category.id)}>
               {/* Specify button text based on if any children */}
-              {obj.children.length > 0 ? 'Add More Skills' : 'Add Skills'}
+              {category.children.length > 0 ? `Add More ${name}` : `Add ${name}`}
             </button>
-            }
-          </React.Fragment>
-        );
-
-      default:
-        break;
-    }  
+        }
+      </React.Fragment>
+    );
   }
 
   return (
     <div className="App">
       <DataContext.Provider value={{data, setData}}>
         <div className="editor">
-          {data.map(obj =>
+          {data.map(category =>
             // Get data to render
-            getComponent(obj)
+            getComponent(category)
           )}
         </div>
 
