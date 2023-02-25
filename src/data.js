@@ -5,9 +5,9 @@ const initial = [
         id: 0,
         name: 'This Person',
         job: 'Web Developer',
-        summary: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore.',
-        email: 'matt1494@gmail.com',
-        phone: 6039133102
+        summary: 'Lorem ipsum dolor sit amet. Et dolor possimus non officia possimus a nobis iure! Ab suscipit dolore et nisi sequi aut culpa commodi ut magni ipsam est consequatur eius et fuga optio rem quas ullam.',
+        email: 'thisperson@example.com',
+        phone: 1234567890
       }
     ]
   },
@@ -15,7 +15,7 @@ const initial = [
     [
       { 
         id: 0,
-        degree: 'Nothing',
+        degree: '',
         school: 'The Odin Project',
         from: 2022,
         to: 2023
@@ -28,7 +28,7 @@ const initial = [
         id: 0,
         job: 'Junior Software Engineer',
         company: 'That Company',
-        responsibilities: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita possimus hic sapiente a magnam nemo.',
+        responsibilities: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eos officiis dolores est? Beatae corrupti maiores magni vero quia, odit labore consectetur aspernatur expedita.',
         from: 2022,
         to: 2023
       }
@@ -65,3 +65,4 @@ const initial = [
 ];
 
 export default initial;
+

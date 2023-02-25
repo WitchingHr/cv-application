@@ -221,7 +221,7 @@ textarea {
 
 .resume-right {
   background-color: var(--color);
-  padding: 10px;
+  padding: 0 5px;
 }
 
 .right-flex {
@@ -233,11 +233,16 @@ textarea {
   padding: 0 10px 10px 10px;
 }
 
+.head-shot-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .head-shot {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  margin: 0 auto;
   cursor: pointer;
   object-fit: cover;
 }
@@ -335,6 +340,10 @@ li.resume-data {
 .resume-description {
   font-size: 10px !important;
   word-break: break-word;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 .resume-date {
@@ -354,7 +363,6 @@ li.resume-data {
 .references {
   grid-column-start: 2;
   grid-row-start: 3;
-  padding: 0 10px 10px 10px;
 }
 
 .languages {

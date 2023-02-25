@@ -25,7 +25,7 @@ export default function Input({ id, categoryId, name }) {
       break;
     case 'Summary':
       className = "summary";
-      maxLength = 150;
+      maxLength = 350;
       break;
     case 'Responsibilities':
       className = "responsibilities";

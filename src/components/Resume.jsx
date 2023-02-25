@@ -70,9 +70,9 @@ export default function Resume({ data }) {
         )}
       </div>
 
-      <div className="resume-right">
+      <div className="resume-right references">
         {data[5].children.length > 0 && (
-          <div className="references">
+          <div>
             <div className="category-invert">References</div>
             <hr className="hr-invert"></hr>
             <div className="ref-wrapper">

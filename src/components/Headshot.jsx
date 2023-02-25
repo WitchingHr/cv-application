@@ -16,7 +16,7 @@ export default function Headshot() {
   }
 
   return (
-    <>
+    <div className="head-shot-wrapper">
       <img
         alt="Headshot"
         className="head-shot"
@@ -31,6 +31,6 @@ export default function Headshot() {
         onChange={onImageChange}
         style={{display: 'none'}}
       />
-    </>
+    </div>
   );
 }
