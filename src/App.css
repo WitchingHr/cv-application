@@ -370,3 +370,74 @@ li.resume-data {
   grid-row-start: 3;
   padding-left: 10px;
 }
+
+.about {
+  margin: 15px 15px 15px auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.about-opened {
+  width: 330px;
+  background-color: var(--background);
+  color: var(--color);
+  position: relative;
+  border-radius: 10px;
+  height: 375px;
+  padding: 15px;
+}
+
+.about-button {
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  background-color: var(--background);
+  color: var(--color);
+  font-size: 24px;
+  font-weight: bolder;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.about-button:hover {
+  /* animation: tilter 0.5s; */
+  transform: scale(1.3);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  animation: colored-links 10s infinite alternate;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+@keyframes colored-links {
+  0% {
+    color: var(--color);
+  }
+  25% {
+    color:rgb(111, 255, 0);
+  }
+  50% {
+    color:rgb(255, 0, 170);
+  }
+  75% {
+    color: cyan;
+  }
+}
+
+.view-button {
+  padding: 20px;
+  width: 100%;
+}

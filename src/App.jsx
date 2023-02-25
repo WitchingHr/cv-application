@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Languages from './components/Languages';
 import References from './components/References';
 import Resume from './components/Resume';
+import About from './components/About';
 import initial from './data';
 import './App.css';
 
@@ -20,8 +21,26 @@ export default function App() {
   const [referencesId, setReferencesId] = useState(1);
 
   const [data, setData] = useState(initial);
+  
+  // Layout state
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
 
-  // Add component to passed section
+  function updateMedia() {
+    setDesktop(window.innerWidth > 768);
+  };
+
+  // Update state on resize
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
+  const [view, setView] = useState(false);
+  function handleChangeView() {
+    setView(!view);
+  }
+
+  // Add component to passed category
   function handleAddComponent(id) {
     // Get next data
     const next = data.map(category => {
@@ -185,6 +204,32 @@ export default function App() {
     );
   }
 
+  if (isDesktop === false) {
+    return (
+      <>
+        <button onClick={handleChangeView} className="view-button">SWITCH VIEW</button>
+        <div className="App">
+          <DataContext.Provider value={{data, setData}}>
+            {view === false ? (
+              <div className="editor">
+                {data.map(category =>
+                  // Get data to render
+                  getComponent(category)
+                )}
+              </div>
+            ) : (
+              <div className='wrapper'>
+                <div className="gradient color-1">
+                  <Resume data={data} />
+                </div>
+              </div>
+            )}
+          </DataContext.Provider>
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="App">
       <DataContext.Provider value={{data, setData}}>
@@ -201,6 +246,8 @@ export default function App() {
           </div>
         </div>
       </DataContext.Provider>
+
+      <About />
     </div>
   );
 }
