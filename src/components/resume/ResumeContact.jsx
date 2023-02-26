@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { DataContext } from "../App";
+import { DataContext } from "../../App";
 
 export default function ResumeContact() {
+  // Get data
   const { data } = useContext(DataContext);
   const child = data[0].children[0];
 

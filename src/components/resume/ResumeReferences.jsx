@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function ResumeReferences({ id, data }) {
+  // Get data for child
   const obj = data.filter((child) => child.id === id);
 
   return (

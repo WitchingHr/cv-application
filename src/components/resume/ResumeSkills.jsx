@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function ResumeSkills({ id, data }) {
+  // Get data for child
   const obj = data.filter((child) => child.id === id);
 
   return (

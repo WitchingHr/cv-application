@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function About() {
+  // True === open
   const [state, setState] = useState(true);
 
   function handleAboutButton() {

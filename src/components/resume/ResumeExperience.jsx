@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function ResumeExperience({ id, data }) {
+  // Get data for child
   const obj = data.filter((child) => child.id === id);
+
   return (
     <div>
       <div className="resume-data-invert resume-date">{obj[0].from}-{obj[0].to}</div>

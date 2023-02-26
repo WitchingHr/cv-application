@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function AboutMobile() {
   const [state, setState] = useState(true);
 
+  // Open/close
   function handleAboutButton() {
     setState(!state);
   }

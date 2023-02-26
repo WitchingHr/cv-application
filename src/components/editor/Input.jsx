@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import dataSetter from '../util';
-import { DataContext } from '../App';
+import dataSetter from '../../util';
+import { DataContext } from '../../App';
 
 export default function Input({ id, categoryId, name }) {
   const { data, setData } = useContext(DataContext);
@@ -9,7 +9,7 @@ export default function Input({ id, categoryId, name }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(name);
 
-  // Get attributes for specific Input type
+  // Get attributes based on name
   let className;
   let maxLength;
   switch (name) {
@@ -67,6 +67,8 @@ export default function Input({ id, categoryId, name }) {
   // Update text
   function handleOnChange(e) {
     setText(e.target.value);
+
+    // Use dataSetter util to update data based on category
     const updatedText = e.target.value;
     dataSetter({ id, updatedText, data, setData, categoryId, name })
   }
@@ -91,6 +93,7 @@ export default function Input({ id, categoryId, name }) {
     setEdit(!edit);
   }
 
+  // TextArea for these two, instead of input
   if (name === 'Responsibilities' || name === 'Summary') {
     if (edit) {
       return (
@@ -108,6 +111,7 @@ export default function Input({ id, categoryId, name }) {
       );
     }
 
+    // And larger div
     return (
       <div
         title={name}
@@ -138,7 +142,6 @@ export default function Input({ id, categoryId, name }) {
       />
     );
   }
-
 
   // Div/Button
   return (
