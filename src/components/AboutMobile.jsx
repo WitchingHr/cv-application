@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function AboutMobile() {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
 
   function handleAboutButton() {
     setState(!state);

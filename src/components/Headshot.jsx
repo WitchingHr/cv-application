@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import avatar from '../assets/avatar.png';
+import { pic } from '../data';
 
 export default function Headshot() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(pic.url);
+
   const inputFile = useRef(null);
   
   function handleClick() {
@@ -12,6 +14,7 @@ export default function Headshot() {
   function onImageChange(e) {
     if (e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]))
+      pic.url = URL.createObjectURL(e.target.files[0])
     }
   }
 

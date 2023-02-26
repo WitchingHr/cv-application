@@ -476,7 +476,7 @@ a:visited {
     display: flex;
     flex-direction: column;
     gap: 3px;
-    margin-bottom: 17px;
+    margin: 17px 0 17px 0;
   }
 
   .about-opened {
@@ -506,6 +506,7 @@ a:visited {
 
   .editor {
     width: 90vw;
+    padding-bottom: 0;
   }
 
   .resume {

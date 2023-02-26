@@ -66,3 +66,8 @@ const initial = [
 
 export default initial;
 
+const pic = {
+  url: null
+}
+
+export { pic };
