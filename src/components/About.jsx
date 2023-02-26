@@ -26,6 +26,7 @@ export default function About() {
             <p>Add extra fields to categories by clicking the "Add More" buttons.</p>
             <p>Remove fields by clicking the "✕" at the top right of the field's box.</p>
             <p>Click the avatar icon to add your picture.</p>
+            <p>Click the Print button when finished to print your resume!</p>
             <br></br>
             <p>Created by</p>
             <p><a href="https://github.com/WitchingHr">WitchingHr © 2023</a></p>

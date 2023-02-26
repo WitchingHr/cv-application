@@ -2,6 +2,7 @@ import React from "react";
 
 export default function ResumeReferences({ id, data }) {
   const obj = data.filter((child) => child.id === id);
+
   return (
     <div>
       <div className="type-invert ref">{obj[0].name}</div>

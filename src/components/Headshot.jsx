@@ -13,8 +13,8 @@ export default function Headshot() {
 
   function onImageChange(e) {
     if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]))
-      pic.url = URL.createObjectURL(e.target.files[0])
+      setImage(URL.createObjectURL(e.target.files[0]));
+      pic.url = URL.createObjectURL(e.target.files[0]);
     }
   }
 

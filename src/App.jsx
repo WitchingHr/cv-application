@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useRef } from 'react';
 import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
@@ -7,9 +7,11 @@ import Languages from './components/Languages';
 import References from './components/References';
 import Resume from './components/Resume';
 import About from './components/About';
+import AboutMobile from './components/AboutMobile';
+import Print from './components/Print';
+import { useReactToPrint } from 'react-to-print';
 import initial from './data';
 import './App.css';
-import AboutMobile from './components/AboutMobile';
 
 export const DataContext = createContext(null);
 
@@ -40,6 +42,11 @@ export default function App() {
   function handleChangeView() {
     setView(!view);
   }
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   // Add component to passed category
   function handleAddComponent(id) {
@@ -205,6 +212,7 @@ export default function App() {
     );
   }
 
+  // Mobile Layout
   if (isDesktop === false) {
     return (
       <>
@@ -226,11 +234,16 @@ export default function App() {
                 )}
               </div>
             ) : (
-              <div className='wrapper'>
-                <div className="gradient color-1">
-                  <Resume data={data} />
+              <>
+                <div className='wrapper'>
+                  <div className="gradient color-1">
+                    <div ref={componentRef}>
+                      <Resume data={data} />
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <Print handlePrint={handlePrint}/>
+              </>
             )}
           </DataContext.Provider>
           <About />
@@ -240,6 +253,7 @@ export default function App() {
     );
   }
 
+  // Desktop Layout
   return (
     <div className="App">
       <DataContext.Provider value={{data, setData}}>
@@ -252,12 +266,14 @@ export default function App() {
 
         <div className='wrapper'>
           <div className="gradient color-1">
-            <Resume data={data} />
+            <div ref={componentRef}>
+              <Resume data={data} />
+            </div>
           </div>
         </div>
       </DataContext.Provider>
-
       <About />
+      <Print handlePrint={handlePrint}/>
     </div>
   );
 }

@@ -385,7 +385,7 @@ li.resume-data {
   color: var(--color);
   position: relative;
   border-radius: 10px;
-  height: 375px;
+  height: 425px;
   padding: 15px;
 }
 
@@ -423,6 +423,29 @@ a:visited {
   text-decoration: none;
 }
 
+.print-button {
+  position: relative;
+  width: 125px;
+  padding: 20px 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color);
+  background-color: var(--background);
+  border: none;
+  border-radius: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.print-desktop {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+.print-desktop:hover {
+  opacity: 1;
+}
+
 @keyframes colored-links {
   0% {
     color: var(--color);
@@ -438,6 +461,12 @@ a:visited {
   }
 }
 
+
+@media only screen and (max-width: 1145px) {
+  .print-desktop {
+    opacity: 20%;
+  }
+}
 
 @media only screen and (max-width: 1000px) {
   .App {
@@ -481,6 +510,17 @@ a:visited {
 
   .about-opened {
     width: 380px;
+  }
+
+  .print-desktop {
+    position: relative;
+    bottom: unset;
+    right: unset;
+    opacity: unset;
+  }
+
+  .delete {
+    opacity: 1;
   }
 }
 
@@ -533,5 +573,4 @@ a:visited {
   .about-opened {
     width: unset;
   }
-
 }
