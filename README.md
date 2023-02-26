@@ -1,5 +1,11 @@
 # CV Application
 
+<img width="1470" alt="Screenshot 2023-02-26 at 3 55 40 PM" src="https://user-images.githubusercontent.com/41353202/221437210-2b1018ba-6d7f-4fa1-baee-e2dc0c69c506.png">
+<p align="middle">
+<img width="499" alt="Screenshot 2023-02-26 at 3 56 38 PM" src="https://user-images.githubusercontent.com/41353202/221437233-bb150496-a7ec-46ca-afc5-551d34ea8c93.png">
+<img width="499" alt="Screenshot 2023-02-26 at 3 56 52 PM" src="https://user-images.githubusercontent.com/41353202/221437236-d30dd6ce-eb6f-40eb-8354-8e0d779b14f0.png">
+</p>
+
 ## Abstract
 Resume builder built with `create-react-app`, created for The Odin Project curriculum. 
 
