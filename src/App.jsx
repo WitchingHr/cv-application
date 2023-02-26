@@ -9,6 +9,7 @@ import Resume from './components/Resume';
 import About from './components/About';
 import initial from './data';
 import './App.css';
+import AboutMobile from './components/AboutMobile';
 
 export const DataContext = createContext(null);
 
@@ -23,10 +24,10 @@ export default function App() {
   const [data, setData] = useState(initial);
   
   // Layout state
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
   function updateMedia() {
-    setDesktop(window.innerWidth > 768);
+    setDesktop(window.innerWidth > 1000);
   };
 
   // Update state on resize
@@ -34,7 +35,7 @@ export default function App() {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
-
+  
   const [view, setView] = useState(false);
   function handleChangeView() {
     setView(!view);
@@ -207,8 +208,15 @@ export default function App() {
   if (isDesktop === false) {
     return (
       <>
-        <button onClick={handleChangeView} className="view-button">SWITCH VIEW</button>
         <div className="App">
+          <div className='gradient color-2 view'>
+            <button 
+              onClick={handleChangeView}
+              className="view-button"
+            >
+              {!view ? 'View Resume' : 'View Editor'}
+            </button>
+          </div>
           <DataContext.Provider value={{data, setData}}>
             {view === false ? (
               <div className="editor">
@@ -225,6 +233,8 @@ export default function App() {
               </div>
             )}
           </DataContext.Provider>
+          <About />
+          <AboutMobile />
         </div>
       </>
     );
